@@ -1,0 +1,57 @@
+// UTBot Alerts Strategy
+
+//@version=4
+strategy("UTBot Alerts Strategy", overlay=true)
+
+// UTBot Alerts Indicator
+utbot = input(title="UTBot Alerts", type=input.bool, defval=true)
+utbot_buy = input(title="UTBot Buy Signal", type=input.bool, defval=true)
+utbot_sell = input(title="UTBot Sell Signal", type=input.bool, defval=true)
+
+// Linear Regression Candles Indicator
+linreg = input(title="Linear Regression Candles", type=input.bool, defval=true)
+
+// Moving Average 200 Indicator
+ma200 = input(title="Moving Average 200", type=input.bool, defval=true)
+
+// Candlestick Colors
+upCandle = close > open
+downCandle = close < open
+
+// UTBot Alerts Settings
+utbot_buy_signal = input(title="UTBot Buy Signal", type=input.integer, defval=2)
+utbot_sell_signal = input(title="UTBot Sell Signal", type=input.integer, defval=-2)
+
+// Moving Average 200 Settings
+ma200_period = input(title="Moving Average 200 Period", type=input.integer, defval=200)
+
+// Linear Regression Candles Settings
+linreg_period = input(title="Linear Regression Candles Period", type=input.integer, defval=14)
+
+// Calculate Moving Average 200
+ma200_value = ma(close, ma200_period)
+
+// Calculate Linear Regression Candles
+linreg_value = linreg(close, linreg_period, 0)
+
+// UTBot Buy and Sell Signals
+utbot_buy_signal_value = utbot_buy ? utbot_buy_signal : 0
+utbot_sell_signal_value = utbot_sell ? utbot_sell_signal : 0
+
+// Buy and Sell Conditions
+buy_condition = utbot and utbot_buy_signal_value and close > ma200_value
+sell_condition = utbot and utbot_sell_signal_value and close < ma200_value
+
+// Plot UTBot Alerts and Moving Average 200
+plot(utbot_buy_signal_value, title="UTBot Buy Signal", style=plot.style_cross, color=color.green, linewidth=2)
+plot(utbot_sell_signal_value, title="UTBot Sell Signal", style=plot.style_cross, color=color.red, linewidth=2)
+plot(ma200_value, title="Moving Average 200", color=color.blue, linewidth=2)
+
+// Plot Linear Regression Candles
+plot(linreg_value, title="Linear Regression Candles", color=color.orange, linewidth=2)
+
+// Strategy Entry and Exit
+if buy_condition
+    strategy.entry("Buy", strategy.long)
+if sell_condition
+    strategy.entry("Sell", strategy.short)

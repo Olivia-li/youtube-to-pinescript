@@ -1,0 +1,51 @@
+Here's a Pine script that implements the strategy you described:
+
+```
+//@version=4
+strategy(title="Zero Lag EMA Trading Strategy", shorttitle="ZEMA")
+
+// Define inputs
+len1 = input(title="ZEMA 1 Length", type=input.integer, defval=10)
+len2 = input(title="ZEMA 2 Length", type=input.integer, defval=20)
+len3 = input(title="ZEMA 3 Length", type=input.integer, defval=30)
+risk = input(title="Risk %", type=input.float, defval=1.0)
+
+// Define zero lag EMAs
+zema1 = ema(close, len1) * 2 - ema(ema(close, len1), len1)
+zema2 = ema(close, len2) * 2 - ema(ema(close, len2), len2)
+zema3 = ema(close, len3) * 2 - ema(ema(close, len3), len3)
+
+// Define plot colors
+plot_color1 = zema1 > zema2 and zema2 > zema3 ? color.blue : na
+plot_color2 = zema2 > zema1 and zema2 > zema3 ? color.red : na
+plot_color3 = zema3 > zema1 and zema3 > zema2 ? color.green : na
+
+// Plot zero lag EMAs
+plot(zema1, color=plot_color1, linewidth=2)
+plot(zema2, color=plot_color2, linewidth=2)
+plot(zema3, color=plot_color3, linewidth=2)
+
+// Define long entry conditions
+long_entry = crossover(close, zema2) and zema1 < zema2 and zema3 < zema2
+
+// Define short entry conditions
+short_entry = crossunder(close, zema2) and zema1 > zema2 and zema3 > zema2
+
+// Define stop loss and take profit levels
+stop_loss = lowest(low, 5)
+take_profit = strategy.position_avg_price + (strategy.position_avg_price - stop_loss) * risk
+
+// Execute long trade
+if long_entry
+    strategy.entry("Long", strategy.long)
+    strategy.exit("Stop Loss", "Long", stop=stop_loss)
+    strategy.exit("Take Profit", "Long", limit=take_profit)
+
+// Execute short trade
+if short_entry
+    strategy.entry("Short", strategy.short)
+    strategy.exit("Stop Loss", "Short", stop=stop_loss)
+    strategy.exit("Take Profit", "Short", limit=take_profit)
+```
+
+This script defines three zero lag EMAs with customizable lengths and plots them on the chart with different colors based on their position relative to each other. It then defines long and short entry conditions based on the position of the EMAs and the price action. Finally, it sets stop loss and take profit levels and executes trades using TradingView's built-in `strategy` functions.

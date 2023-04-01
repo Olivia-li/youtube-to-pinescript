@@ -1,0 +1,38 @@
+Here's the Pine script for the MACD strategy with EMA trend confirmation:
+
+```
+//@version=4
+strategy("MACD Strategy with EMA Trend Confirmation", overlay=true, default_qty_type=strategy.percent_of_equity, default_qty_value=100, currency="USD", initial_capital=50000)
+
+// MACD Indicator
+fast_length = input(title="Fast Length", type=input.integer, defval=12)
+slow_length = input(title="Slow Length", type=input.integer, defval=26)
+signal_length = input(title="Signal Smoothing", type=input.integer, defval=9)
+macd_line = ema(close, fast_length) - ema(close, slow_length)
+signal_line = ema(macd_line, signal_length)
+
+// EMA Indicator
+ema_length = input(title="EMA Length", type=input.integer, defval=50)
+ema_line = ema(close, ema_length)
+
+// Buy Signal
+buy_signal = crossover(macd_line, signal_line) and close > ema_line
+
+// Take Profit and Stop Loss
+take_profit = input(title="Take Profit (%)", type=input.float, defval=1.0)
+stop_loss = input(title="Stop Loss (%)", type=input.float, defval=1.0)
+
+// Strategy Entry and Exit
+if buy_signal
+    strategy.entry("Buy", strategy.long)
+    strategy.exit("Take Profit/Stop Loss", "Buy", profit=take_profit, loss=stop_loss)
+    
+// Plotting
+plot(macd_line, color=color.blue, title="MACD")
+plot(signal_line, color=color.red, title="Signal Line")
+plot(ema_line, color=color.green, title="EMA")
+```
+
+The strategy uses the `crossover()` function to generate a buy signal when the MACD line crosses above the signal line and the closing price is above the EMA line. The `strategy.entry()` function is then used to enter a long position, and the `strategy.exit()` function is used to set the take profit and stop loss levels.
+
+Traders can adjust the input values for the MACD and EMA indicators as well as the take profit and stop loss percentages to optimize the strategy for their instrument. It is important to thoroughly test the strategy on historical data using the strategy tester on TradingView before using it in live trading.
