@@ -1,0 +1,194 @@
+hey guys and welcome in YouTube channel
+in today's video I am going to tell you
+about a really practical strategy in
+financial markets
+this strategy Works in all markets like
+crypto Forex or stocks
+and you can also use it in all time
+frames from one minute to one hour
+so make sure to watch this video Until
+the End
+for now I choose the Euro USD chart with
+the one minute time frame
+next I'm going to add the first
+indicator to my chart chart
+in order to do that I open the
+indicators Tab and type utbot in the
+search bar and add utbot alerts to my
+chart okay
+this is how this indicator looks
+as you can see it's a very simple buy
+and sell indicator that shows us the
+exact price we should enter the trade
+but using this indicator in its default
+settings is not a good idea because it
+gives out too many fake signals
+but I want to show you some special
+settings that eliminates almost all of
+the false signals
+so I open the utbot alert setting and in
+the inputs tab I set key value to 4 and
+I change the ATR period to 300.
+next I go to the Styles section and
+disable the cell option and close the
+settings
+because of these settings I just applied
+to this indicator now I'm getting only
+by signals
+I have another special adjustment for
+these cell signals that I am going to
+Showcase ladder on Nvidia
+working with this indicator is so simple
+as soon as a Buy Signal is given on a
+Candlestick you just need to open a
+trading position
+at that candlestick's closing price I
+Mark the trigger Candlestick with a
+vertical line
+this is the kendallistic on which device
+signal has been shown
+and on its closing we can enter a trade
+if I were to enter this trade I could
+have gained a nice profit
+see the next signal
+here it is a Buy Signal
+I enter a trade at the trigger
+candlesticks closing and this trade
+could also be profitable
+or this example in the 15 minutes time
+frame I could have gained two percent
+profit from this trade alone
+now let's add these cell signals to our
+charts as well
+so I open the indicators tab again and
+add a second utbot alerts indicator to
+my chart
+I search utbot again and add this
+indicator to my chart for a second time
+to apply the cell adjustment to this
+indicator I open its settings and inputs
+I set the key value to 6 and the ATR
+period to 1.
+next up in the style tab I disable the
+buy option so that it shows us only cell
+signals
+now in our charts we got both buy and
+sell signals as we were entering trades
+using these indicators by signals we can
+use its cell signals to enter trades as
+well
+at the closing price of this
+candlesticks on which the cell signal
+has been displayed we can enter a cell
+trade and another cell signal back here
+here are some more examples in the Euro
+USD chart with the one hour time frame
+[Music]
+now for getting rid of the against and
+momentum signals like this by signal
+here which has been given in a
+descending trend
+and also in order to be able to identify
+these signals and Trends I am going to
+add the third indicator that is a trend
+finder and an assistant for the
+candlesticks to my chart
+so I open the indicators Tab and type
+linear regression candles in the search
+bar and apply this indicator to my chart
+the chart will change to look like this
+and the candlesticks get smoother
+to make the chart clearer
+open the linear regression candle
+settings in the style tab
+change the Lin reg candle bullish
+uncheck and Lynn reg candle bearish
+uncheck
+after going in the inputs tab
+change the signal smoothing option from
+11 to 200 and close the tab
+yeah now we can see the smooth
+candlesticks
+we also need to optimize the moving
+average line shown by this indicator
+now this moving average shown is a
+moving average 200.
+adding this indicator to my chart is
+going to help me identify the against
+the momentum signal
+whenever the candlesticks are below the
+moving average 200 line I'm only allowed
+to enter sell trades because we should
+consider the trend which is downwards
+and there's the opposite
+as long as the canalistics are above the
+moving averages 200 line I can only
+enter by trades and trade according to
+the momentum of the market which is
+ascending
+let's review the trade entry condition
+again
+we should enter a Buy trade when a Buy
+Signal has been given by utbot alerts
+like this one shown over here
+then in order to confirm the signal
+having the same directions as the true
+momentum of the market we should be sure
+that the candlestics are above the
+moving average line
+this Candlestick is above the moving
+average 200 line and we have gotten a
+Buy Signal on it
+so this signal is confirmed and we can
+use it to enter by trades
+I enter a trade at this Connolly six
+closing
+I can set my stop loss below the
+previous swing low
+I adjust my stop loss according to the
+swing low and for the Target I can use 1
+over 1.5 risk reward ratio so I adjust
+the take profit with a 1.5 reward ratio
+for another example we gotta Buy Signal
+here
+the signal is above the moving average
+line so it is valid and we can use it to
+enter a trade
+so I do open a trading position at these
+candlestics closing
+I set my stop loss below the last swing
+low and adjust my target to one each to
+five reward ratio
+it is the exact opposite for sell trade
+I just need a sell signal from utbot
+alerts and the price should be below the
+moving average 200 line to confirm the
+signal
+I entered the trade at this candle 6
+closing setting my stop loss above the
+last suing high and like by trade I set
+a 1 over 1.5 risk reward ratio for
+exiting the trade with using the moving
+average 200 line
+many fake signals like this by signal
+and this other one here gets filtered
+and it prevents us from entering a trade
+against a market trend
+now let's see how this trading setup
+performs in gold chart history with the
+one hour time frame
+thank you
+[Music]
+foreign
+we could gain 253 profit which is a
+truly big profit for such few traits
+I really recommend using this strategy
+because it is high accurate
+but if you want another strategy that is
+as good as this one make sure to watch
+the next video and hit the like button
+and subscribe the channel for
+newtradingstrategy DOT see you soon
+thanks for watching our video
+thank you
+[Music]

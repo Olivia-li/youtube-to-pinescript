@@ -1,0 +1,269 @@
+hello everyone
+in this video I want to share a simple
+yet very profitable strategy with you
+guys
+by mastering this strategy do not
+underestimate this strategy because of
+its simplicity
+you've only the other ones anymore
+I will go through everything step by
+step and try to teach you each and every
+detail
+so be sure to watch the whole video
+first of all open the tradingview.com
+website and then select the zoohouse
+currency pair
+now I'll set my time to the five minute
+time frame for this strategy
+but keep in mind that you can use this
+method on all time frames and this
+strategy can be profitable on all of
+them
+now it's time to add indicators to our
+chart
+in total three free indicators are going
+to be used in this strategy
+let's get to applying the first one
+open the indicators tab from the top of
+the page in trading View
+then on the top of the tab in the search
+bar we type our first indicator's name
+which is Trader XL
+we add this Trader XL micro Trend
+scanner made by BTC trolley indicator
+Trend charts now as you can see
+Trader XO micro Trend scanner is an
+indicator with simple and clear buy and
+sell signals that we're going to use
+them to trade
+this indicator contains two moving
+average graphs
+these two lines here this one below is
+the fast moving average graph and the
+one on the top is the slow graph
+the trading signals given by the
+indicator are based on the crossing of
+these two lines
+if the crossing is upwards then it will
+give us a bullish or by signal
+or for example like here if the crossing
+is downward it will show a bearish or
+sell signal
+now how do we trade using this indicator
+as I said this is a simple trading
+indicator which is very easy to use
+and if you consider only two conditions
+you can trade with this indicator alone
+the two conditions are the appearance of
+a bullish or long signal and the
+candlesticks form simultaneously with
+the signal being above the two lines
+so whenever these conditions are met you
+can enter the trade where the trigger
+Candlestick is closed and make profit
+you could have had an astounding profit
+from this trade
+also for the sell signals the conditions
+are exactly the opposite
+if a beer signal appears alongside a
+Candlestick which is closed under both
+of the moving average lines
+all conditions are fulfilled and we can
+enter the trade where the trigger
+Candlestick has been closed and gained
+profit without any problem
+let me show you some more examples on
+different time frames
+to prove that this indicator is really
+precise and effective let's check out
+the 15 minutes time frame
+see here
+even in this time frame the indicator
+has given us a Buy Signal at the best
+point possible
+if we had entered the trade using this
+signal as you can see we could have
+caught a very big movement of the market
+this big movement of the market could
+have been snatched by using this by
+signal and we could have gained a lot of
+profits and had an amazing trade
+here we got a sell signal and the
+Candlestick has been closed under the
+moving average lines
+so we can enter the trade here and open
+a short selling position where the
+candlesticks has been closed
+again the trade could have made a lot of
+profit for us just with the help of this
+indicator alone
+but if we use this indicator alone we
+could face some problems same as the
+other indicators that when the market
+enters the reindeer Zone like here in
+this situation we will get some fake
+signals
+for instance this signal here is fake or
+this one over here and also this one is
+fake as well
+we can eliminate all of these fake
+signals using the methods that I'm going
+to introduce later on this video
+but before moving on to that if you're
+enjoying this video make sure to hit a
+like And subscribe and help the Channel
+with the algorithm
+okay now let me teach you how to filter
+these take signals
+we need to add another indicator to our
+charts
+on top of the page click on the
+indicators option and open the tab
+on the search bar type macd and apply
+the moving average convergence
+Divergence indicator to your charts by
+clicking on it
+now this is how the indicator looks and
+it contains some histograms and a signal
+line and macd line
+to make most of the indicator
+we must open the settings of the
+indicator and change some things up so
+that the indicator can become more
+optimized and efficient for our strategy
+first in this tiles have we disabled the
+macd in the signal options
+because we won't be needing these two in
+this strategy
+next we move to the input section and
+from there we change the fast length
+option to 25 and the slow length to 100.
+that's it
+now we can click on the OK and close the
+tab
+let me explain how we will be using the
+macd in our strategy
+the way we use it is that whenever the
+mac's histogram is above the zero line
+it means that we're currently at an
+uptrend movement and we're allowed to
+enter only by trades
+and if the histogram is under the zero
+line it tells us that VR as a downtrend
+movement and we should enter only short
+or sell traits
+let's see the indicator has worked with
+the first one
+here we got a bearish or sell signal and
+if I draw a line exactly on this
+Candlestick we can see that the macd
+histogram is under the zero line
+so we're currently at a descending Trend
+and we are allowed to enter only cell
+positions
+so this signal is valid and we could
+have entered a trade using it if we were
+to do that and set our stop loss to here
+we would have made a lot of profit
+now let's move on to the next trade
+see here we gotta Buy Signal
+let's check it up using the macd
+indicator and see if it is valid or not
+here the macta's Instagram is completely
+under the zero line
+so that means we are at downtrend
+movement and we are not allowed to enter
+a Buy trade
+so this signal here is fake and we
+should ignore it and don't enter a trade
+now the next signal is sell or bearish
+that has been given by the first
+indicator
+I will draw a line here
+see down here in the macting indicator
+the histogram is still under the zero
+line
+so we are still at a downtrend movement
+and we are allowed to open Short Selling
+positions
+we could have gained profit from this
+trade as well
+now let me show you some more examples
+using this method
+since it is always the best to trade
+according to the Market's true momentum
+I go to the indicators Tab and search
+EMA and add the moving average
+exponential indicator to my chart
+by clicking on it we've got to change
+some things in this indicator
+in order to do that I will open EMA
+settings tab by clicking on this gear
+icon
+in the settings I will change the length
+to 200 from 9.
+next in the style section change the
+moving average line color to white and
+make it a little Bolder so it can be
+seen better
+this moving average line actually shows
+us the direction of the Market's trend
+and if the price is higher than the
+moving average line it means that the
+trend of the market is upwards
+and if the price is lower than the
+moving average graph it says that the
+trend of the market is downwards
+we can enter a Buy trade whenever a Buy
+Signal has been given by the first
+indicator which is tradiexo
+Here We Gotta Buy Signal and the second
+condition is the Mac histogram being
+above the zero line
+but now we got a third condition as well
+that is the price being higher than the
+moving average 200 line
+here our trigger Candlestick has been
+closed exactly above the moving average
+200 graph
+so we are allowed to enter a Buy trade
+now let's test a short trade and check
+out its conditions
+to enter a sell trade we have to get a
+short or bearish signal from the trade
+EXO indicator that we have got it here
+next the macd histogram has got to be
+under the zero line and in this position
+the histogram is under the zero line
+so the second condition is met as well
+and for the third condition our Trader
+Candlestick should close under the
+moving average line and this is true
+here so we can enter a short selling
+entry
+now that we've completely learned this
+strategy I want to test it on the zos
+chart with the 15 minutes time frame
+and I want to see so how much profit we
+could have made in these trades using
+this strategy
+now let's example
+look this first trade win
+and next this second Ed trade win
+you can see here third trade also win
+here for trade win and last trade hit
+try get so easily make money form this
+strategy
+see how much profits it made with just
+these five traits
+in only five trades in the gold chart we
+achieved nearly 312 profit
+and this much profit in such food trade
+is truly amazing and extraordinary
+but if you want to know about another
+great strategy that is just one make
+sure to watch this next video shown on
+the screen
+see you soon
+thanks for watching our video
+[Music]

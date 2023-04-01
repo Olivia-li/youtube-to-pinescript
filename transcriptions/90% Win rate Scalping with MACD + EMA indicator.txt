@@ -1,0 +1,198 @@
+oftentimes the simplest indicators can
+give you very useful strategies for
+scalp Trading
+in this video I am going to show you one
+such indicators
+the macd indicator is widely popular and
+used by experienced and inexperienced
+Trader alike
+the reason macd indicator is so popular
+is because it is a trend following
+momentum indicators
+and as the saying goes in trading trend
+is your friend
+however macd is a very useful tool when
+the market has a lot of price action
+when the market is trading sideways the
+macd indicator alone can produce a lot
+of full signals
+in this video I will show you how you
+can use macd indicator along with some
+other technical indicators to maximize
+the profits
+I will show you the strategy written in
+Pine script and also the performance of
+the strategy with strategy tester on
+trading View
+you can also find this indicator script
+in a link in the description
+and in return I ask you to Simply smash
+that like button and subscribe for more
+videos
+macd or moving average convergence
+Divergence is a trend following
+indicator
+the macd indicator shows the
+relationship between two exponential
+moving average of a Securities price
+although a Trader can set any two
+exponential moving average periods the
+commonly used moving average periods for
+the macd indicator are 12 period EMA and
+26 period EMA
+the macd line is calculated by
+subtracting the long term or the 26
+period EMA from the short term or the 12
+period EMA
+the exponential moving average places
+greater weight and significance on the
+most recent data points
+once you have the macd line then a nine
+period EMA line is plotted on top of the
+macd line
+this line is called the signal line a
+Trader can identify the market Trend by
+looking at The Crossings of the signal
+line and the macd line
+a potential Buy Signal is when the macd
+line crosses above the signal line and
+the cell signal is when the macd line
+crosses below the signal line
+now let's script this simple macd
+strategy and see how it performs
+we will check the performance on sqq on
+one hour chart
+[Music]
+[Music]
+the strategy starts with an initial
+capital of fifty thousand dollars and
+the default quantity of trade is 100
+which represents the order size
+the macd indicator takes three inputs as
+I said before the user can change the
+input if they want but the default
+values for the macd indicator are 12 and
+26 period EMA to calculate the macd line
+and 9 period EMA for the signal line
+when applied the strategy on sqq we can
+see a Buy Signal every time the macd
+line crosses over the signal line
+however if you look closely not every
+trade ended in profit
+the trade that ended with a stop loss
+indicates the trade went against our
+favor
+by looking at the trades that failed and
+the one succeeded an obvious pattern can
+be observed
+can you identify the pattern pause the
+video now and comment why you think the
+trades ended up the way they did
+I hope you all got the right answer the
+reason the strategy went against the
+trader is because the entry was not
+following the price trend
+as you can see when the overall price
+was trending down a Buy Signal ended up
+in a loss
+but when the strategy made a Buy Signal
+with the price uptrend they all ended up
+in profit
+so it is important to trade with the
+price trend one of the ways a price
+trend can be tracked is with a longer
+period exponential moving average
+indicator
+an exponential moving average is
+different from the simple moving average
+a simple moving average simply sums up
+the closing prices of a specific period
+and divides it by the number of periods
+however the exponential moving average
+calculates the multipliers for smoothing
+the EMA
+the multiplier or the smoothing factor
+in the EMA is calculated by the
+following formula
+and this is the formula to calculate the
+current EMA unlike the SMA which gives
+all prices of the specified period and
+equal weight EMA gives the recent prices
+a higher weight
+for this strategy we are using a 50
+period EMA
+however the value can be updated based
+on the Trader's need
+with the help of EMA it becomes more
+clear which way the price is trending
+anytime the price is closing above the
+EMA line along with the EMA line moving
+upwards it indicates an overall price
+uptrend while price closing below the
+EMA line with EMA line moving downwards
+indicates a market downturn
+it is also important to note that the
+EMA line may not be the best trend
+indicator when the price is moving
+sideways
+after we add the EMA indicator along
+with our macd indicator let's look at
+the changes in our strategy performance
+adding the EMA line to track the market
+Trend along with the macd indicator
+anytime the price closes below the EMA
+line the strategy ignores any bullish
+crossover and avoids calling any buy
+signals
+only when the price was above the EMA
+line a Buy Signal was triggered
+as I have mentioned before both the EMA
+line and the macd indicators give full
+signals when the price is moving
+sideways
+without making the strategy too complex
+we can add an additional check to avoid
+some of the buy signals that are too
+close to the EMA line
+we want the Buy Signal to be triggered
+when there is a clear Trend in the EMA
+line
+but when the price is too close to the
+EMA line we cannot be sure about the
+price trend
+so until the price in the EMA line has a
+certain difference between them the Buy
+Signal will not be triggered
+now putting all these together the
+complete script can automatically
+trigger the Buy Signal along with the
+appropriate take profit and the stop
+loss level
+in this case we are using a one percent
+profit Target and stop loss at a
+one-to-one ratio
+let's quickly code this up
+[Music]
+foreign
+[Music]
+this strategy on sqq on a one-hour chart
+the strategy produced over 90 win rate
+and a net gain of more than 30 since
+2020. obviously this strategy is not
+perfect and there is a lot of room for
+improvement
+you should not use this strategy in your
+trading without understanding properly
+how this strategy works on your
+instrument
+regardless this simple strategy when
+applied properly can bring big profits
+in your Trading
+if you learned something from this video
+please leave a like And subscribe to the
+channel
+you can find the indicator script with
+the link in the description
+next time I will come back with another
+strategy and its performance
+thank you for watching
