@@ -1,51 +1,60 @@
-Here's a Pine script that implements the strategy you described:
+Here's the Pine script for the given strategy:
 
 ```
 //@version=4
-strategy(title="Zero Lag EMA Trading Strategy", shorttitle="ZEMA")
+study(title="Zero Lag EMA Strategy", shorttitle="ZEMA")
 
 // Define inputs
-len1 = input(title="ZEMA 1 Length", type=input.integer, defval=10)
-len2 = input(title="ZEMA 2 Length", type=input.integer, defval=20)
-len3 = input(title="ZEMA 3 Length", type=input.integer, defval=30)
-risk = input(title="Risk %", type=input.float, defval=1.0)
+len = input(title="Length", type=input.integer, defval=20)
+mult = input(title="Multiplier", type=input.float, defval=2.5)
+stop_mult = input(title="Stop Loss Multiplier", type=input.float, defval=1.5)
 
-// Define zero lag EMAs
-zema1 = ema(close, len1) * 2 - ema(ema(close, len1), len1)
-zema2 = ema(close, len2) * 2 - ema(ema(close, len2), len2)
-zema3 = ema(close, len3) * 2 - ema(ema(close, len3), len3)
+// Define ZEMA function
+zema(src, len) =>
+    alpha = 2 / (len + 1)
+    ema1 = ema(src, len)
+    ema2 = ema(ema1, len)
+    zema = (alpha * 2 * ema1 - (1 - alpha) * ema2) ^ 2
 
-// Define plot colors
-plot_color1 = zema1 > zema2 and zema2 > zema3 ? color.blue : na
-plot_color2 = zema2 > zema1 and zema2 > zema3 ? color.red : na
-plot_color3 = zema3 > zema1 and zema3 > zema2 ? color.green : na
+// Calculate ZEMA lines
+zema_blue = zema(close, len)
+zema_red = zema(zema_blue, len)
+zema_green = zema(zema_red, len)
 
-// Plot zero lag EMAs
-plot(zema1, color=plot_color1, linewidth=2)
-plot(zema2, color=plot_color2, linewidth=2)
-plot(zema3, color=plot_color3, linewidth=2)
+// Plot ZEMA lines
+plot(zema_blue, color=color.blue, linewidth=2)
+plot(zema_red, color=color.red, linewidth=2)
+plot(zema_green, color=color.green, linewidth=2)
 
 // Define long entry conditions
-long_entry = crossover(close, zema2) and zema1 < zema2 and zema3 < zema2
+long_entry = crossover(zema_red, zema_blue) and crossover(zema_green, zema_red) and close > zema_red
 
 // Define short entry conditions
-short_entry = crossunder(close, zema2) and zema1 > zema2 and zema3 > zema2
+short_entry = crossunder(zema_red, zema_blue) and crossunder(zema_red, zema_green) and close < zema_red
+
+// Plot entry signals
+plotshape(long_entry, style=shape.triangleup, location=location.belowbar, color=color.green, size=size.small)
+plotshape(short_entry, style=shape.triangledown, location=location.abovebar, color=color.red, size=size.small)
 
 // Define stop loss and take profit levels
-stop_loss = lowest(low, 5)
-take_profit = strategy.position_avg_price + (strategy.position_avg_price - stop_loss) * risk
+stop_loss = low - atr(len) * stop_mult
+take_profit = close + (close - stop_loss) * mult
+
+// Plot stop loss and take profit levels
+plot(stop_loss, color=color.red, title="Stop Loss")
+plot(take_profit, color=color.green, title="Take Profit")
 
 // Execute long trade
 if long_entry
     strategy.entry("Long", strategy.long)
-    strategy.exit("Stop Loss", "Long", stop=stop_loss)
-    strategy.exit("Take Profit", "Long", limit=take_profit)
+    strategy.exit("Long Stop Loss", "Long", stop=stop_loss, when=strategy.position_size < 0)
+    strategy.exit("Long Take Profit", "Long", limit=take_profit, when=strategy.position_size > 0)
 
 // Execute short trade
 if short_entry
     strategy.entry("Short", strategy.short)
-    strategy.exit("Stop Loss", "Short", stop=stop_loss)
-    strategy.exit("Take Profit", "Short", limit=take_profit)
+    strategy.exit("Short Stop Loss", "Short", stop=stop_loss, when=strategy.position_size > 0)
+    strategy.exit("Short Take Profit", "Short", limit=take_profit, when=strategy.position_size < 0)
 ```
 
-This script defines three zero lag EMAs with customizable lengths and plots them on the chart with different colors based on their position relative to each other. It then defines long and short entry conditions based on the position of the EMAs and the price action. Finally, it sets stop loss and take profit levels and executes trades using TradingView's built-in `strategy` functions.
+This script defines the zero lag exponential moving average (ZEMA) function and calculates the blue, red, and green ZEMA lines. It then plots these lines and generates long and short entry signals based on the strategy conditions. The script also defines stop loss and take profit levels and executes trades using the `strategy.entry()` and `strategy.exit()` functions. Customization and extensive testing are recommended for optimal results.

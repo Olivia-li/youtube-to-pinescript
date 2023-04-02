@@ -1,0 +1,39 @@
+Here's the Pine script for the given strategy:
+
+```
+//@version=4
+strategy("AI-based Trading Strategy", overlay=true, margin_long=100, margin_short=100)
+
+// Machine Learning K N based strategy
+ml_kn_buy = input(title="ML K N Buy Label", type=input.string, defval="Buy")
+ml_kn_sell = input(title="ML K N Sell Label", type=input.string, defval="Sell")
+
+ml_kn_signal = ml_kn_buy == "Buy" ? 1 : ml_kn_sell == "Sell" ? -1 : 0
+ml_kn_color = ml_kn_signal == 1 ? color.blue : ml_kn_signal == -1 ? color.red : color.gray
+plotchar(ml_kn_signal, title="ML K N Signal", char='⇅', location=location.top, color=ml_kn_color, size=size.tiny)
+
+// EMA Ribbon
+ema_ribbon_1 = input(title="EMA Ribbon 1", type=input.integer, defval=7)
+ema_ribbon_2 = input(title="EMA Ribbon 2", type=input.integer, defval=21)
+ema_ribbon_3 = input(title="EMA Ribbon 3", type=input.integer, defval=50)
+ema_ribbon_4 = input(title="EMA Ribbon 4", type=input.integer, defval=100)
+ema_ribbon_5 = input(title="EMA Ribbon 5", type=input.integer, defval=200)
+
+ema_ribbon_color = close > ema(close, ema_ribbon_5) and close > ema(close, ema_ribbon_4) and close > ema(close, ema_ribbon_3) and close > ema(close, ema_ribbon_2) and close > ema(close, ema_ribbon_1) ? color.green : close < ema(close, ema_ribbon_5) and close < ema(close, ema_ribbon_4) and close < ema(close, ema_ribbon_3) and close < ema(close, ema_ribbon_2) and close < ema(close, ema_ribbon_1) ? color.red : color.gray
+plot(ema(close, ema_ribbon_1), title="EMA Ribbon 1", color=ema_ribbon_color, linewidth=2)
+plot(ema(close, ema_ribbon_2), title="EMA Ribbon 2", color=ema_ribbon_color, linewidth=2)
+plot(ema(close, ema_ribbon_3), title="EMA Ribbon 3", color=ema_ribbon_color, linewidth=2)
+plot(ema(close, ema_ribbon_4), title="EMA Ribbon 4", color=ema_ribbon_color, linewidth=2)
+plot(ema(close, ema_ribbon_5), title="EMA Ribbon 5", color=ema_ribbon_color, linewidth=2)
+
+// Relative Strength Index (RSI)
+rsi_length = input(title="RSI Length", type=input.integer, defval=14)
+rsi_oversold = input(title="RSI Oversold", type=input.integer, defval=40)
+rsi_overbought = 100 - rsi_oversold
+rsi = rsi(close, rsi_length)
+plot(rsi, title="RSI", color=color.blue)
+rsi_signal = rsi <= rsi_oversold ? 1 : rsi >= rsi_overbought ? -1 : 0
+rsi_color = rsi_signal == 1 ? color.green : rsi_signal == -1 ? color.red : color.gray
+``` 
+
+Note: Please make sure to forward test the strategy on a paper account before implementing it.

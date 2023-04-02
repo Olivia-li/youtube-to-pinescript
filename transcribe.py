@@ -4,13 +4,14 @@ from pytube import YouTube
 from youtube_transcript_api import YouTubeTranscriptApi
 
 urls = [
-    'https://www.youtube.com/watch?v=cbGM4Bpa0eg',
-    'https://www.youtube.com/watch?v=XD3rQQTFdVY',
-    'https://www.youtube.com/watch?v=h4JpQ94M4X4&authuser=0',
-    'https://www.youtube.com/watch?v=46ZXuak9oB0&authuser=0',
-    'https://www.youtube.com/watch?v=jXcegYhNCLo&authuser=0',
-    'https://www.youtube.com/watch?v=uN3i-Cihjm8&authuser=0',
-    'https://www.youtube.com/watch?v=ptLBzmUmeRk&authuser=0'
+    # 'https://www.youtube.com/watch?v=cbGM4Bpa0eg',
+    # 'https://www.youtube.com/watch?v=XD3rQQTFdVY',
+    # 'https://www.youtube.com/watch?v=h4JpQ94M4X4&authuser=0',
+    # 'https://www.youtube.com/watch?v=46ZXuak9oB0&authuser=0',
+    # 'https://www.youtube.com/watch?v=jXcegYhNCLo&authuser=0',
+    # 'https://www.youtube.com/watch?v=uN3i-Cihjm8&authuser=0',
+    # 'https://www.youtube.com/watch?v=ptLBzmUmeRk&authuser=0'
+    'https://www.youtube.com/watch?v=mYNqikThZvQ'
 ]
 
 

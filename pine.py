@@ -43,19 +43,27 @@ def save_script(script, file_name):
         file.write(script)
     print(f"Script saved as '{file_name}'")
 
+def run_script_generation(file_name):
+    print(f"Generating script for '{file_name}'...")
+    summary_path = os.path.join(summarizations_path, file_name)
+    summary = read_summary(summary_path)
+    script = generate_pine_script(summary)
+    save_script(script, file_name)
+
 
 def main():
     if not os.path.exists(summarizations_path):
         print(f"No summarizations directory found at '{summarizations_path}'")
         sys.exit(1)
 
+    # if len(sys.argv) > 1:
+    #     if sys.argv[1].endswith(".txt"):
+    #         print(sys.argv[1])
+    #         run_script_generation(sys.argv[1])
+    # else:
     for file_name in os.listdir(summarizations_path):
         if file_name.endswith(".txt"):
-            print(f"Generating script '{file_name}'...")
-            summarize_path = os.path.join(summarizations_path, file_name)
-            summary = read_summary(summarize_path)
-            script = generate_pine_script(summary)
-            save_script(script, file_name)
+            run_script_generation(file_name)
 
 
 if __name__ == "__main__":

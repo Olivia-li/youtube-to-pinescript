@@ -1,57 +1,43 @@
-// UTBot Alerts Strategy
+Here's a Pine script that implements the strategy you described:
 
+```
 //@version=4
 strategy("UTBot Alerts Strategy", overlay=true)
 
 // UTBot Alerts Indicator
-utbot = input(title="UTBot Alerts", type=input.bool, defval=true)
-utbot_buy = input(title="UTBot Buy Signal", type=input.bool, defval=true)
-utbot_sell = input(title="UTBot Sell Signal", type=input.bool, defval=true)
+utbotAlerts = input(title="UTBot Alerts Settings", type=input.string, defval="1;0.003;0.0015;0.00075")
+[utbotLength, utbotFactor1, utbotFactor2, utbotFactor3] = str.split(utbotAlerts, ";")
+utbot = security(syminfo.tickerid, timeframe.period, utbot(utbotLength, utbotFactor1, utbotFactor2, utbotFactor3))
+plot(utbot, color=color.blue, linewidth=2)
 
 // Linear Regression Candles Indicator
-linreg = input(title="Linear Regression Candles", type=input.bool, defval=true)
+linRegCandlesLength = input(title="Linear Regression Candles Length", type=input.integer, defval=20)
+linRegCandles = linreg(close, linRegCandlesLength, 0)
+plot(linRegCandles, color=color.orange, linewidth=2)
 
 // Moving Average 200 Indicator
-ma200 = input(title="Moving Average 200", type=input.bool, defval=true)
+ma200 = sma(close, 200)
+plot(ma200, color=color.red, linewidth=2)
 
-// Candlestick Colors
-upCandle = close > open
-downCandle = close < open
-
-// UTBot Alerts Settings
-utbot_buy_signal = input(title="UTBot Buy Signal", type=input.integer, defval=2)
-utbot_sell_signal = input(title="UTBot Sell Signal", type=input.integer, defval=-2)
-
-// Moving Average 200 Settings
-ma200_period = input(title="Moving Average 200 Period", type=input.integer, defval=200)
-
-// Linear Regression Candles Settings
-linreg_period = input(title="Linear Regression Candles Period", type=input.integer, defval=14)
-
-// Calculate Moving Average 200
-ma200_value = ma(close, ma200_period)
-
-// Calculate Linear Regression Candles
-linreg_value = linreg(close, linreg_period, 0)
-
-// UTBot Buy and Sell Signals
-utbot_buy_signal_value = utbot_buy ? utbot_buy_signal : 0
-utbot_sell_signal_value = utbot_sell ? utbot_sell_signal : 0
-
-// Buy and Sell Conditions
-buy_condition = utbot and utbot_buy_signal_value and close > ma200_value
-sell_condition = utbot and utbot_sell_signal_value and close < ma200_value
-
-// Plot UTBot Alerts and Moving Average 200
-plot(utbot_buy_signal_value, title="UTBot Buy Signal", style=plot.style_cross, color=color.green, linewidth=2)
-plot(utbot_sell_signal_value, title="UTBot Sell Signal", style=plot.style_cross, color=color.red, linewidth=2)
-plot(ma200_value, title="Moving Average 200", color=color.blue, linewidth=2)
-
-// Plot Linear Regression Candles
-plot(linreg_value, title="Linear Regression Candles", color=color.orange, linewidth=2)
+// Buy and Sell Signals
+buySignal = utbot == 1 and close > ma200
+sellSignal = utbot == -1 and close < ma200
 
 // Strategy Entry and Exit
-if buy_condition
+if buySignal
     strategy.entry("Buy", strategy.long)
-if sell_condition
+if sellSignal
     strategy.entry("Sell", strategy.short)
+
+// Plot Buy and Sell Arrows
+plotshape(buySignal, style=shape.arrowup, color=color.green, size=size.small, location=location.belowbar)
+plotshape(sellSignal, style=shape.arrowdown, color=color.red, size=size.small, location=location.abovebar)
+```
+
+This script uses the UTBot Alerts, Linear Regression Candles, and Moving Average 200 indicators to identify buy and sell signals. The `utbotAlerts` input allows you to customize the settings of the UTBot Alerts indicator.
+
+The `buySignal` and `sellSignal` variables use the UTBot Alerts indicator and the Moving Average 200 indicator to determine when to enter a buy or sell trade. The `linRegCandles` variable is plotted to help identify trends.
+
+The `strategy.entry()` function is used to enter trades when the buy or sell signal is given. The `plotshape()` function is used to plot buy and sell arrows on the chart.
+
+Note that this script is for educational purposes only and should not be used for actual trading without proper testing and risk management.

@@ -1,38 +1,54 @@
-Here's the Pine script for the MACD strategy with EMA trend confirmation:
-
-```
 //@version=4
-strategy("MACD Strategy with EMA Trend Confirmation", overlay=true, default_qty_type=strategy.percent_of_equity, default_qty_value=100, currency="USD", initial_capital=50000)
+strategy("MACD and EMA Trading Strategy", overlay=true)
 
-// MACD Indicator
-fast_length = input(title="Fast Length", type=input.integer, defval=12)
-slow_length = input(title="Slow Length", type=input.integer, defval=26)
-signal_length = input(title="Signal Smoothing", type=input.integer, defval=9)
-macd_line = ema(close, fast_length) - ema(close, slow_length)
-signal_line = ema(macd_line, signal_length)
+//Input variables
+fastLength = input(title="Fast Length", type=input.integer, defval=12)
+slowLength = input(title="Slow Length", type=input.integer, defval=26)
+signalLength = input(title="Signal Smoothing", type=input.integer, defval=9)
+emaLength = input(title="EMA Length", type=input.integer, defval=20)
+stopLossPct = input(title="Stop Loss %", type=input.float, step=0.1, defval=1.0)
+takeProfitPct = input(title="Take Profit %", type=input.float, step=0.1, defval=2.0)
 
-// EMA Indicator
-ema_length = input(title="EMA Length", type=input.integer, defval=50)
-ema_line = ema(close, ema_length)
+//Calculate MACD and EMA
+[macdLine, signalLine, _] = macd(close, fastLength, slowLength, signalLength)
+emaLine = ema(close, emaLength)
 
-// Buy Signal
-buy_signal = crossover(macd_line, signal_line) and close > ema_line
+//Plot MACD and EMA
+plot(macdLine, color=color.blue, title="MACD")
+plot(signalLine, color=color.orange, title="Signal Line")
+plot(emaLine, color=color.red, title="EMA")
 
-// Take Profit and Stop Loss
-take_profit = input(title="Take Profit (%)", type=input.float, defval=1.0)
-stop_loss = input(title="Stop Loss (%)", type=input.float, defval=1.0)
+//Buy signal
+buySignal = crossover(macdLine, signalLine) and close > emaLine
 
-// Strategy Entry and Exit
-if buy_signal
+//Sell signal
+sellSignal = crossunder(macdLine, signalLine) and close < emaLine
+
+//Exit signal
+exitSignal = sellSignal or buySignal
+
+//Stop loss and take profit
+stopLoss = close * (1 - stopLossPct/100)
+takeProfit = close * (1 + takeProfitPct/100)
+
+//Strategy entry and exit
+if (buySignal)
     strategy.entry("Buy", strategy.long)
-    strategy.exit("Take Profit/Stop Loss", "Buy", profit=take_profit, loss=stop_loss)
-    
-// Plotting
-plot(macd_line, color=color.blue, title="MACD")
-plot(signal_line, color=color.red, title="Signal Line")
-plot(ema_line, color=color.green, title="EMA")
-```
+    strategy.exit("Exit", "Buy", stop=stopLoss, limit=takeProfit)
+if (sellSignal)
+    strategy.entry("Sell", strategy.short)
+    strategy.exit("Exit", "Sell", stop=stopLoss, limit=takeProfit) 
 
-The strategy uses the `crossover()` function to generate a buy signal when the MACD line crosses above the signal line and the closing price is above the EMA line. The `strategy.entry()` function is then used to enter a long position, and the `strategy.exit()` function is used to set the take profit and stop loss levels.
+//Plot stop loss and take profit levels
+plot(stopLoss, color=color.red, title="Stop Loss")
+plot(takeProfit, color=color.green, title="Take Profit") 
 
-Traders can adjust the input values for the MACD and EMA indicators as well as the take profit and stop loss percentages to optimize the strategy for their instrument. It is important to thoroughly test the strategy on historical data using the strategy tester on TradingView before using it in live trading.
+//Strategy backtesting settings
+strategy.risk.allow_entry_in(strategy.direction.long)
+strategy.risk.allow_entry_in(strategy.direction.short)
+strategy.risk.max_intraday_drawdown_percent(10) //Maximum drawdown allowed
+strategy.risk.max_position_size(100) //Maximum position size allowed
+strategy.risk.percentage(2) //Risk percentage per trade
+
+//Strategy performance report
+strategy.performanceReport()
