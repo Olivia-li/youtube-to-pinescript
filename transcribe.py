@@ -3,18 +3,6 @@ import os
 from pytube import YouTube
 from youtube_transcript_api import YouTubeTranscriptApi
 
-urls = [
-    # 'https://www.youtube.com/watch?v=cbGM4Bpa0eg',
-    # 'https://www.youtube.com/watch?v=XD3rQQTFdVY',
-    # 'https://www.youtube.com/watch?v=h4JpQ94M4X4&authuser=0',
-    # 'https://www.youtube.com/watch?v=46ZXuak9oB0&authuser=0',
-    # 'https://www.youtube.com/watch?v=jXcegYhNCLo&authuser=0',
-    # 'https://www.youtube.com/watch?v=uN3i-Cihjm8&authuser=0',
-    # 'https://www.youtube.com/watch?v=ptLBzmUmeRk&authuser=0'
-    'https://www.youtube.com/watch?v=mYNqikThZvQ'
-]
-
-
 def get_video_id(url):
     return url.split("watch?v=")[-1]
 
@@ -44,24 +32,22 @@ def save_transcript(transcript, video_title):
         for entry in transcript:
             file.write(entry['text'] + "\n")
     print(f"Transcript saved as '{filename}'")
+    return filepath
 
 
 def main():
-    # if len(sys.argv) < 2:
-    #     print("Usage: python script.py <youtube_url>")
-    #     sys.exit(1)
+    if len(sys.argv[1]) < 2:
+        print("Usage: python script.py <youtube_url>")
+        sys.exit(1)
+    youtube_url =  sys.argv[1]
+    video_id = get_video_id(youtube_url)
+    video_title = get_video_title(video_id)
+    transcript = get_transcript(video_id)
 
-    for item in urls:
-        youtube_url = item
-
-        # youtube_url = sys.argv[1]
-        video_id = get_video_id(youtube_url)
-        video_title = get_video_title(video_id)
-        transcript = get_transcript(video_id)
-
-        if transcript and video_title:
-            save_transcript(transcript, video_title)
-
+    if transcript and video_title:
+        save_transcript(transcript, video_title)
+    
+    return  os.path.join(f'{os.path.dirname(os.path.realpath(__file__))}/transcriptions', f"{video_title}.txt")
 
 if __name__ == "__main__":
     main()

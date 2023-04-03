@@ -64,12 +64,9 @@ def main():
         print(f"No file name provided. Summarizing all files in '{transcriptions_path}'")
         for file_name in os.listdir(transcriptions_path):
             if file_name.endswith(".txt"):
-                print(f"Summarizing '{file_name}'...")
-                transcript_path = os.path.join(transcriptions_path, file_name)
-                transcript = read_transcript(transcript_path)
-                summary = summarize_transcript(transcript)
-                save_summary(summary, file_name)
+                run_summarization(file_name) 
 
+    return os.path.join(summarizations_path, file_name)
 
 if __name__ == "__main__":
     main()

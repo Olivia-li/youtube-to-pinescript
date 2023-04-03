@@ -56,15 +56,13 @@ def main():
         print(f"No summarizations directory found at '{summarizations_path}'")
         sys.exit(1)
 
-    # if len(sys.argv) > 1:
-    #     if sys.argv[1].endswith(".txt"):
-    #         print(sys.argv[1])
-    #         run_script_generation(sys.argv[1])
-    # else:
-    for file_name in os.listdir(summarizations_path):
-        if file_name.endswith(".txt"):
-            run_script_generation(file_name)
-
+    if len(sys.argv) > 1:
+        if sys.argv[1].endswith(".txt"):
+            run_script_generation(sys.argv[1])
+    else:
+        for file_name in os.listdir(summarizations_path):
+            if file_name.endswith(".txt"):
+                run_script_generation(file_name)
 
 if __name__ == "__main__":
     main()
