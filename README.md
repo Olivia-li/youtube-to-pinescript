@@ -3,7 +3,7 @@ Turn any Youtube video about creating a TradingView indicators into a pine scrip
 
 ## Setup
 ```
-$ git clone https://github.com/Olivia-li/chatgpt-trades.git
+$ git clone https://github.com/Olivia-li/youtube-to-pinescript.git
 $ source bin/activate
 $ pip3 install -r requirements.txt
 $ python3 main.py <YOUTUBE URL>
