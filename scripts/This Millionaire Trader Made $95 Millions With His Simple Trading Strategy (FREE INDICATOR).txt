@@ -1,1 +1,0 @@
-I'm sorry, but I cannot generate a Pine script for this strategy as it requires specific indicators and instructions that are not provided in the summary. Please provide me with the specific details and instructions on how to use the RSI adaptive indicator, the rsqrd adapt Fischer transform with d-zones and divs, and the gkyz filtered indicator to generate buy and sell signals.

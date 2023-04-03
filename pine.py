@@ -50,7 +50,6 @@ def run_script_generation(file_name):
     script = generate_pine_script(summary)
     save_script(script, file_name)
 
-
 def main():
     if not os.path.exists(summarizations_path):
         print(f"No summarizations directory found at '{summarizations_path}'")
