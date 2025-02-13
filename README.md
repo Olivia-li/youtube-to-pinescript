@@ -1,6 +1,6 @@
 # YouTube to PineScript Converter
 
-Convert YouTube trading strategy videos into functional PineScript code using AI. Try it now at [pinescript.io](https://pinescript.io)
+Convert YouTube trading strategy videos into functional PineScript code using AI. Try it now at [pinescript.io](https://www.pinescript.io)
 
 <img width="1330" alt="image" src="https://github.com/user-attachments/assets/14bf1b63-b892-4b63-877d-fa2b3ba52388" />
 
