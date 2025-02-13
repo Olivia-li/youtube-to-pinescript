@@ -1,36 +1,37 @@
-# YouTube to Pine Script Converter
+# YouTube to PineScript Converter
 
-This project allows you to convert any YouTube video about creating TradingView indicators into a Pine Script using ChatGPT, powered by OpenAI. Follow the step-by-step instructions below to set up and run the project.
+Convert YouTube trading strategy videos into functional PineScript code using AI. Try it now at [pinescript.io](https://pinescript.io)
 
-## Prerequisites
+<img width="1330" alt="image" src="https://github.com/user-attachments/assets/14bf1b63-b892-4b63-877d-fa2b3ba52388" />
 
-1. Obtain an OpenAI API key: Create an account at [platform.openai.com](https://platform.openai.com) and click on "View API keys" in your profile settings.
-<img width="1063" alt="image" src="https://user-images.githubusercontent.com/9896624/229427078-c3adf157-3cde-4b61-a8db-5714fd061c50.png">
+## Features
 
-## Setup
+- **Instant Conversion**: Paste any YouTube trading strategy video URL and get working PineScript code
+- **Free to Use**: No sign-up required, completely free
+- **AI-Powered**: Advanced AI model analyzes video content to generate accurate PineScript
 
-1. Clone the repository:
-```
-git clone https://github.com/Olivia-li/youtube-to-pinescript.git
-```
-2. Create a copy of the `.env.example` file and rename it to `.env`:
-```
-$ mv .env.example .env
-```
-3. Open the `.env` file and add your OpenAI API key that you generated on the OpenAI website:
-```
-OPENAI_API_KEY=<your_api_key_here>
-```
-4. Activate the virtual environment:
-```
-$ source bin/activate
-```
-5. Install the required dependencies:
-```
-$ pip3 install -r requirements.txt
-```
-6. Run the program with the YouTube URL of the video about creating a TradingView indicator:
-```
-$ python3 main.py <YOUTUBE_URL>
-```
-Your Pine Script will be stored in the `./scripts` directory.
+## How It Works
+
+1. **Paste URL**: Add your YouTube trading strategy video link
+2. **AI Analysis**: Our AI processes the video content
+3. **Get Code**: Receive ready-to-use PineScript code for TradingView
+
+## Try It Out
+
+Visit [pinescript.io](https://pinescript.io) to start converting your trading strategies.
+
+## Feedback
+
+Have suggestions or found a bug? [Submit feedback here](https://tally.so/r/31pAVL)
+
+## Tech Stack
+
+- Next.js 14 (App Router)
+- TypeScript
+- Tailwind CSS
+- OpenAI API
+- Vercel
+
+## License
+
+MIT © [pinescript.io](https://pinescript.io)
